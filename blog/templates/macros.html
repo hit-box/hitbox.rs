@@ -1,25 +1,79 @@
-{% macro post_card(page) %}
-<a href="{{ page.permalink }}" class="post-card">
-  <div class="post-card__meta">
-    <time class="post-card__date" datetime="{{ page.date }}">
-      {{ page.date | date(format="%Y-%m-%d") }}
-    </time>
-    {% if page.reading_time %}
-    <span class="post-card__reading-time">{{ page.reading_time }} min read</span>
+{% macro featured_post(page) %}
+<div class="featured-post">
+  <div class="featured-post__separator"></div>
+  <div class="featured-post__tags">
+    {% if page.taxonomies.tags %}
+    <div class="tag-list">
+      {% for tag in page.taxonomies.tags %}
+      <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
     {% endif %}
   </div>
-  <h3 class="post-card__title">{{ page.title }}</h3>
-  {% if page.description %}
-  <p class="post-card__summary">{{ page.description }}</p>
-  {% endif %}
+  <div class="featured-post__content">
+    <div class="featured-post__meta">
+      <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      {% if page.reading_time %}
+      <span>~{{ page.reading_time }} min read</span>
+      {% endif %}
+    </div>
+    <h2 class="featured-post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+    {% if page.description %}
+    <p class="featured-post__excerpt">{{ page.description }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro grid_card(page) %}
+<div class="post-grid__card">
   {% if page.taxonomies.tags %}
-  <div class="post-card__tags">
-    {% for tag in page.taxonomies.tags %}
-    <span class="tag">{{ tag }}</span>
-    {% endfor %}
+  <div class="post-grid__tags">
+    <div class="tag-list">
+      {% for tag in page.taxonomies.tags %}
+      <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
   </div>
   {% endif %}
-</a>
+  <h3 class="post-grid__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+  {% if page.description %}
+  <p class="post-grid__excerpt">{{ page.description }}</p>
+  {% endif %}
+  <div class="post-grid__meta">
+    <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    {% if page.reading_time %}
+    <span>~{{ page.reading_time }} min read</span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro post_card(page) %}
+<div class="featured-post">
+  <div class="featured-post__separator"></div>
+  <div class="featured-post__tags">
+    {% if page.taxonomies.tags %}
+    <div class="tag-list">
+      {% for tag in page.taxonomies.tags %}
+      <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="featured-post__content">
+    <div class="featured-post__meta">
+      <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      {% if page.reading_time %}
+      <span>~{{ page.reading_time }} min read</span>
+      {% endif %}
+    </div>
+    <h2 class="featured-post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+    {% if page.description %}
+    <p class="featured-post__excerpt">{{ page.description }}</p>
+    {% endif %}
+  </div>
+</div>
 {% endmacro %}
 
 {% macro pagination_nav(paginator) %}

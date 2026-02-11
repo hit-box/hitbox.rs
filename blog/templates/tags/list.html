@@ -4,15 +4,17 @@
 
 {% block content %}
 
-<div class="section-header">
-  <span class="section-header__title">Tags</span>
-  <div class="section-header__line"></div>
-</div>
+<div class="grid">
+  <div class="section-header">
+    <span class="section-header__title">Tags</span>
+    <div class="section-header__line"></div>
+  </div>
 
-<div class="tags-list">
-  {% for term in terms %}
-  <a href="{{ term.permalink }}" class="tag">{{ term.name }} ({{ term.pages | length }})</a>
-  {% endfor %}
+  <div class="tags-list">
+    {% for term in terms %}
+    <a href="{{ term.permalink }}" class="tag">{{ term.name }} ({{ term.pages | length }})</a>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

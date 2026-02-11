@@ -9,31 +9,32 @@
 
 {% block content %}
 
-<a href="{{ get_url(path='@/blog/_index.md') }}" class="back-link">back to blog</a>
+<article class="article grid">
+  <a href="{{ config.base_url }}" class="article__back back-link">back to blog</a>
 
-<article class="article">
-  <header class="article__header">
-    <h1 class="article__title">{{ page.title }}</h1>
-    <div class="article__meta">
-      <time class="article__date" datetime="{{ page.date }}">
-        {{ page.date | date(format="%Y-%m-%d") }}
-      </time>
-      {% if page.reading_time %}
-      <span>~{{ page.reading_time }} min read</span>
-      {% endif %}
-      {% if page.taxonomies.tags %}
-      <div class="article__tags">
-        {% for tag in page.taxonomies.tags %}
-        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-  </header>
+  <h1 class="article__title">{{ page.title }}</h1>
+
+  <div class="article__meta">
+    <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    {% if page.reading_time %}
+    <span>~{{ page.reading_time }} min read</span>
+    {% endif %}
+  </div>
+
+  <div class="article__line"></div>
 
   <div class="article__body">
+    {% if page.taxonomies.tags %}
+    <div class="margin-note article__tags-row">
+      {% for tag in page.taxonomies.tags %}
+      <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
     {{ page.content | safe }}
   </div>
+
+  <div class="article__line"></div>
 
   <nav class="article__nav">
     <div>

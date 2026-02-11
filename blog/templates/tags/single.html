@@ -5,15 +5,12 @@
 
 {% block content %}
 
-<a href="{{ get_url(path='@/blog/_index.md') }}" class="back-link">back to blog</a>
+<div class="grid">
+  <a href="{{ config.base_url }}" class="back-link" style="grid-column: 1 / -1;">back to blog</a>
 
-<div class="section-header">
-  <span class="section-header__title">#{{ term.name }}</span>
-  <div class="section-header__line"></div>
+  {% for page in term.pages %}
+    {{ macros::post_card(page=page) }}
+  {% endfor %}
 </div>
-
-{% for page in term.pages %}
-  {{ macros::post_card(page=page) }}
-{% endfor %}
 
 {% endblock %}

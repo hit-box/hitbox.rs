@@ -1,0 +1,881 @@
+/* MacBook Air - 2 */
+
+position: relative;
+width: 1280px;
+height: 1186px;
+
+background: #131212;
+
+
+/* github */
+
+position: absolute;
+width: 46px;
+height: 17px;
+left: 535px;
+top: 45px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+
+
+
+/* contacts */
+
+position: absolute;
+width: 64px;
+height: 17px;
+left: 1080px;
+top: 45px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+
+
+
+/* docs */
+
+position: absolute;
+width: 35px;
+height: 17px;
+left: 473px;
+top: 45px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+
+
+
+/* Line 2 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1007px;
+height: 0px;
+left: 137px;
+top: 481px;
+
+border: 1px solid #FFFFFF;
+
+
+/* Line 3 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1007px;
+height: 0px;
+left: 137px;
+top: 232px;
+
+border: 1px solid #FFFFFF;
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 473px;
+top: 504.5px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* 2026-02-11 ~2 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 473px;
+top: 255.5px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* framework, guide */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 135px;
+top: 504.5px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* blog */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 135px;
+top: 255.5px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* How to cache in 10 minutes */
+
+position: absolute;
+width: 473px;
+height: 44px;
+left: 473px;
+top: 539px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Welcome to the Hitbox Blog */
+
+position: absolute;
+width: 478px;
+height: 44px;
+left: 473px;
+top: 290px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Highly customizable async caching framework for Rust designed for high-performance applications. Protocol-agnostic async core + first-class HTTP support via hitbox-http. Pluggable backends from in-memory to distributed solutions such as Redis. Built on tower, works with any tokio-based service. */
+
+position: absolute;
+width: 590px;
+height: 132px;
+left: 473px;
+top: 594px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Group 7 */
+
+position: absolute;
+width: 1010px;
+height: 260px;
+left: 135px;
+top: 726px;
+
+
+
+/* Line 4 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 137px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* Line 5 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 475px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* Line 6 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 817px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* framework */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 135px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* framework, platform */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 477px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* framework, platform */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 817px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 137px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Real-world system */
+
+position: absolute;
+width: 214px;
+height: 29px;
+left: 137px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Highly customizable async caching framework for Rust designed for high-performance applications. Protocol-agnostic async core + first-class HTTP support via hitbox-http. Pluggable backends from in-memory to distributed solutions such as Redis. Built on tower, works with any tokio-based service. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 137px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 477px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Platform for caching */
+
+position: absolute;
+width: 233px;
+height: 29px;
+left: 477px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* We think of Hitbox not as a library, but as a platform for caching, designed from day one to be easily extensible without enforcing a single backend, protocol, or caching strategy. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 477px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 817px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* How to cache in 10 minutes */
+
+position: absolute;
+width: 315px;
+height: 29px;
+left: 817px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Highly customizable async caching framework for Rust designed for high-performance applications. Protocol-agnostic async core + first-class HTTP support via hitbox-http. Pluggable backends from in-memory to distributed solutions such as Redis. Built on tower, works with any tokio-based service. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 817px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Line 4 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 137px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* Line 5 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 475px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* Line 6 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 328px;
+height: 0px;
+left: 817px;
+top: 726px;
+
+border: 1px solid #FFFFFF;
+
+
+/* framework */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 135px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* framework, platform */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 477px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* framework, platform */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 817px;
+top: 957px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #8AF8A7;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 137px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Real-world system */
+
+position: absolute;
+width: 214px;
+height: 29px;
+left: 137px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Highly customizable async caching framework for Rust designed for high-performance applications. Protocol-agnostic async core + first-class HTTP support via hitbox-http. Pluggable backends from in-memory to distributed solutions such as Redis. Built on tower, works with any tokio-based service. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 137px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 477px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Platform for caching */
+
+position: absolute;
+width: 233px;
+height: 29px;
+left: 477px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* We think of Hitbox not as a library, but as a platform for caching, designed from day one to be easily extensible without enforcing a single backend, protocol, or caching strategy. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 477px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* 2026-02-11 ~10 min read */
+
+position: absolute;
+width: 175px;
+height: 29px;
+left: 817px;
+top: 748px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* How to cache in 10 minutes */
+
+position: absolute;
+width: 315px;
+height: 29px;
+left: 817px;
+top: 777px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #E3E3E3;
+
+
+
+/* Highly customizable async caching framework for Rust designed for high-performance applications. Protocol-agnostic async core + first-class HTTP support via hitbox-http. Pluggable backends from in-memory to distributed solutions such as Redis. Built on tower, works with any tokio-based service. */
+
+position: absolute;
+width: 328px;
+height: 155px;
+left: 817px;
+top: 817px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* We’re excited to launch the official Hitbox blog. This is where we’ll share everything happening in the Hitbox ecosystem — from technical deep-dives into cache orchestration patterns to release announcements and performance benchmarks. */
+
+position: absolute;
+width: 590px;
+height: 84px;
+left: 473px;
+top: 345px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: #E3E3E3;
+
+
+
+/* Introducing the official Hitbox blog — a home for architecture deep-dives, release notes, benchmarks and ecosystem news. */
+
+position: absolute;
+width: 369px;
+height: 48px;
+left: 473px;
+top: 129px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 20px;
+/* or 154% */
+
+color: rgba(255, 255, 255, 0.4);
+
+
+
+/* Group 5 */
+
+position: absolute;
+width: 143px;
+height: 60px;
+left: 135px;
+top: 27px;
+
+
+
+/* Group 4 */
+
+position: absolute;
+width: 60px;
+height: 60px;
+left: 135px;
+top: 27px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 10.55%;
+right: 84.77%;
+top: 2.28%;
+bottom: 92.66%;
+
+background: #E3E3E3;
+
+
+/* Group */
+
+position: absolute;
+left: 11.37%;
+right: 85.59%;
+top: 2.95%;
+bottom: 93.34%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 11.37%;
+right: 85.59%;
+top: 2.95%;
+bottom: 93.34%;
+
+background: #131212;
+border: 1px solid #131212;
+
+
+/* hitbox */
+
+position: absolute;
+width: 65px;
+height: 24px;
+left: 213px;
+top: 45px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+
+

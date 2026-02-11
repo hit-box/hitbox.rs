@@ -2,19 +2,20 @@
 {% import "macros.html" as macros %}
 
 {% block title %}Blog — {{ config.title }}{% endblock %}
-{% block nav_blog %}active{% endblock %}
 
 {% block content %}
 
-<div class="section-header">
-  <span class="section-header__title">All Posts</span>
-  <div class="section-header__line"></div>
+<div class="grid">
+  <div class="section-header">
+    <span class="section-header__title">All Posts</span>
+    <div class="section-header__line"></div>
+  </div>
+
+  {% for page in paginator.pages %}
+    {{ macros::post_card(page=page) }}
+  {% endfor %}
+
+  {{ macros::pagination_nav(paginator=paginator) }}
 </div>
-
-{% for page in paginator.pages %}
-  {{ macros::post_card(page=page) }}
-{% endfor %}
-
-{{ macros::pagination_nav(paginator=paginator) }}
 
 {% endblock %}

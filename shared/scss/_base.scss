@@ -18,12 +18,14 @@ html {
 }
 
 body {
-  font-family: $font-mono;
-  font-size: $font-size-base;
+  font-family: $font-body;
+  font-size: $font-size-xs;
+  font-weight: 300;
   line-height: $line-height-base;
   color: $color-text;
   background-color: $color-bg;
   min-height: 100vh;
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -43,8 +45,8 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-mono;
-  font-weight: 700;
+  font-family: $font-body;
+  font-weight: 500;
   line-height: $line-height-tight;
   color: $color-text;
 }

@@ -1,6 +1,23 @@
 // =============================================================================
-// Blog layout — Page structure, nav, footer
+// Blog layout — 12-column grid, nav, footer
 // =============================================================================
+
+// ── Grid container ─────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  column-gap: $grid-gap;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Site shell ─────────────────────────────────────────────────────────────
 
 .site {
   display: flex;
@@ -10,74 +27,62 @@
 
 .site-content {
   flex: 1;
-  width: 100%;
-  max-width: $content-width;
-  margin: 0 auto;
-  padding: $space-8 $space-6;
+  padding-top: $space-8;
+  padding-bottom: $space-16;
 
   @media (min-width: $bp-md) {
-    padding: $space-12 $space-6;
+    padding-top: $space-12;
   }
 }
 
-// ── Navigation ──────────────────────────────────────────────────────────────
+// ── Navigation ─────────────────────────────────────────────────────────────
 
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: $nav-height;
-  display: flex;
-  align-items: center;
-  padding: 0 $space-6;
-  background-color: rgba($color-bg, 0.9);
+  background-color: rgba($color-bg, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid $color-border;
+}
 
-  &__inner {
-    width: 100%;
-    max-width: $content-width-lg;
-    margin: 0 auto;
+.site-nav__inner {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  column-gap: $grid-gap;
+  align-items: center;
+  height: 90px;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: $bp-md) {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 }
 
 .site-logo {
-  font-family: $font-mono;
-  font-size: $font-size-base;
-  font-weight: 700;
-  color: $color-text;
+  grid-column: 1 / 5;
+  display: block;
   text-decoration: none;
-  letter-spacing: -0.02em;
 
-  .protocol {
-    color: $color-text-muted;
-    font-weight: 400;
-  }
-
-  .domain {
-    color: $color-accent;
-  }
-
-  &:hover {
-    color: $color-text;
-
-    .domain {
-      text-shadow: 0 0 8px $color-accent-glow;
-    }
+  &__img {
+    display: block;
+    height: 48px;
+    width: auto;
   }
 }
 
 .nav-links {
+  grid-column: 5 / 10;
   display: flex;
   gap: $space-6;
   list-style: none;
 
   a {
     font-size: $font-size-sm;
-    color: $color-text-muted;
+    font-weight: 400;
+    color: $color-text;
+    letter-spacing: 0.05em;
     transition: color $transition-fast;
 
     &:hover,
@@ -87,7 +92,25 @@
   }
 }
 
-// ── Footer ──────────────────────────────────────────────────────────────────
+.nav-contacts {
+  grid-column: 10 / -1;
+  text-align: right;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text;
+  letter-spacing: 0.05em;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  @media (max-width: $bp-md) {
+    margin-left: auto;
+  }
+}
+
+// ── Footer ─────────────────────────────────────────────────────────────────
 
 .site-footer {
   border-top: 1px solid $color-border;
@@ -95,13 +118,14 @@
   text-align: center;
 
   &__inner {
-    max-width: $content-width-lg;
+    max-width: $content-width;
     margin: 0 auto;
   }
 
   &__ascii {
-    font-size: $font-size-xs;
-    color: $color-text-dim;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.15);
     margin-bottom: $space-4;
     line-height: 1.2;
     white-space: pre;
@@ -126,6 +150,6 @@
 
   &__copyright {
     font-size: $font-size-xs;
-    color: $color-text-dim;
+    color: $color-text-muted;
   }
 }

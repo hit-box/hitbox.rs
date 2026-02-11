@@ -3,34 +3,28 @@
 
 {% block content %}
 
-<section class="hero">
-  <h1 class="hero__title">
-    <span class="hero__prompt">&gt; </span>hitbox.blog<span class="hero__cursor"></span>
-  </h1>
-  <p class="hero__description">
-    Articles, architecture deep-dives and news from the Hitbox async caching framework for Rust.
-  </p>
-</section>
-
 {% set blog = get_section(path="blog/_index.md") %}
 
-{% if blog.pages %}
-<section>
-  <div class="section-header">
-    <span class="section-header__title">Recent Posts</span>
-    <div class="section-header__line"></div>
+<div class="grid">
+  <div class="intro">
+    <p class="intro__text">{{ config.description }}</p>
   </div>
 
-  {% for page in blog.pages | slice(end=5) %}
-    {{ macros::post_card(page=page) }}
-  {% endfor %}
+  {% if blog.pages %}
+    {# Featured posts — first 2, large 2-column layout #}
+    {% for page in blog.pages | slice(end=2) %}
+      {{ macros::featured_post(page=page) }}
+    {% endfor %}
 
-  {% if blog.pages | length > 5 %}
-  <a href="{{ get_url(path='@/blog/_index.md') }}" class="pagination__next" style="display: inline-block; margin-top: 1rem; font-size: 0.875rem;">
-    all posts
-  </a>
+    {# Post grid — remaining posts, 3-column small cards #}
+    {% if blog.pages | length > 2 %}
+      <div class="post-grid">
+        {% for page in blog.pages | slice(start=2) %}
+          {{ macros::grid_card(page=page) }}
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
-</section>
-{% endif %}
+</div>
 
 {% endblock %}

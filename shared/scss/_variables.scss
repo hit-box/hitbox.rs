@@ -3,36 +3,38 @@
 // =============================================================================
 
 // Color palette
-$color-bg:           #0a0a0a;
-$color-surface:      #141414;
-$color-surface-alt:  #1a1a1a;
-$color-border:       #1e1e1e;
-$color-border-hover: #2a2a2a;
+$color-bg:           #131212;
+$color-surface:      #1a1a1a;
+$color-surface-alt:  #1e1e1e;
+$color-border:       #2a2a2a;
+$color-border-hover: #3a3a3a;
+$color-border-light: #ffffff;
 
-$color-text:         #e0e0e0;
-$color-text-muted:   #808080;
-$color-text-dim:     #505050;
+$color-text:         #e3e3e3;
+$color-text-muted:   rgba(255, 255, 255, 0.4);
+$color-text-dim:     rgba(255, 255, 255, 0.25);
 
-$color-accent:       #00ff41;
-$color-accent-dim:   #00b32d;
-$color-accent-glow:  rgba(0, 255, 65, 0.15);
+$color-accent:       #8af8a7;
+$color-accent-dim:   #6cd68a;
+$color-accent-glow:  rgba(138, 248, 167, 0.15);
 
 $color-error:        #ff4040;
 $color-warning:      #ffaa00;
 
 // Typography
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'SF Mono', 'Consolas', monospace;
 
 $font-size-base:  1rem;      // 16px
 $font-size-sm:    0.875rem;  // 14px
-$font-size-xs:    0.75rem;   // 12px
+$font-size-xs:    0.8125rem; // 13px
 $font-size-lg:    1.125rem;  // 18px
 $font-size-xl:    1.5rem;    // 24px
-$font-size-2xl:   2rem;      // 32px
+$font-size-2xl:   2.25rem;   // 36px
 $font-size-3xl:   2.5rem;    // 40px
 
-$line-height-base:  1.7;
-$line-height-tight: 1.3;
+$line-height-base:  1.54;
+$line-height-tight: 1.22;
 
 // Spacing scale
 $space-1:  0.25rem;
@@ -45,10 +47,12 @@ $space-12: 3rem;
 $space-16: 4rem;
 $space-24: 6rem;
 
-// Layout
-$content-width:     720px;
-$content-width-lg:  960px;
-$nav-height:        60px;
+// Grid
+$grid-columns:    12;
+$grid-gap:        14px;
+$content-width:   1010px;
+$page-width:      1280px;
+$nav-height:      60px;
 
 // Breakpoints
 $bp-sm:  640px;

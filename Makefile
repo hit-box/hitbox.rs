@@ -1,8 +1,9 @@
 .PHONY: blog-sync blog-dev blog-build clean ensure-zola
 
-SHARED_SCSS  = shared/scss
-SHARED_FONTS = shared/fonts
-BLOG_DIR     = blog
+SHARED_SCSS   = shared/scss
+SHARED_FONTS  = shared/fonts
+SHARED_IMAGES = shared/images
+BLOG_DIR      = blog
 ZOLA_VERSION ?= 0.22.1
 ZOLA_LOCAL   = $(CURDIR)/.bin/zola
 
@@ -21,8 +22,10 @@ ensure-zola:
 blog-sync:
 	@mkdir -p $(BLOG_DIR)/sass/shared
 	@mkdir -p $(BLOG_DIR)/static/fonts/jetbrains-mono
+	@mkdir -p $(BLOG_DIR)/static/images
 	@cp $(SHARED_SCSS)/*.scss $(BLOG_DIR)/sass/shared/
 	@cp $(SHARED_FONTS)/jetbrains-mono/*.woff2 $(BLOG_DIR)/static/fonts/jetbrains-mono/
+	@cp $(SHARED_IMAGES)/* $(BLOG_DIR)/static/images/
 	@echo "shared assets synced → blog/"
 
 # Development server with live reload
@@ -37,4 +40,5 @@ blog-build: ensure-zola blog-sync
 clean:
 	rm -rf $(BLOG_DIR)/sass/shared
 	rm -rf $(BLOG_DIR)/static/fonts
+	rm -rf $(BLOG_DIR)/static/images
 	@echo "cleaned synced assets"
