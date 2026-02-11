@@ -3,7 +3,7 @@
 SHARED_SCSS  = shared/scss
 SHARED_FONTS = shared/fonts
 BLOG_DIR     = blog
-ZOLA_VERSION ?= 0.19.2
+ZOLA_VERSION ?= 0.22.1
 ZOLA_LOCAL   = $(CURDIR)/.bin/zola
 
 # Download exact Zola version into .bin/
