@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_url %}{{ page.permalink }}{% endblock %}
+
+{% block content %}
+
+<a href="{{ get_url(path='@/blog/_index.md') }}" class="back-link">back to blog</a>
+
+<article class="article">
+  <header class="article__header">
+    <h1 class="article__title">{{ page.title }}</h1>
+    <div class="article__meta">
+      <time class="article__date" datetime="{{ page.date }}">
+        {{ page.date | date(format="%Y-%m-%d") }}
+      </time>
+      {% if page.reading_time %}
+      <span>~{{ page.reading_time }} min read</span>
+      {% endif %}
+      {% if page.taxonomies.tags %}
+      <div class="article__tags">
+        {% for tag in page.taxonomies.tags %}
+        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="article__body">
+    {{ page.content | safe }}
+  </div>
+
+  <nav class="article__nav">
+    <div>
+      {% if page.earlier %}
+      <a href="{{ page.earlier.permalink }}" class="article__nav-prev">{{ page.earlier.title }}</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if page.later %}
+      <a href="{{ page.later.permalink }}" class="article__nav-next">{{ page.later.title }}</a>
+      {% endif %}
+    </div>
+  </nav>
+</article>
+
+{% endblock %}

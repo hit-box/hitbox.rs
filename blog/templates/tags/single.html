@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}#{{ term.name }} — {{ config.title }}{% endblock %}
+
+{% block content %}
+
+<a href="{{ get_url(path='@/blog/_index.md') }}" class="back-link">back to blog</a>
+
+<div class="section-header">
+  <span class="section-header__title">#{{ term.name }}</span>
+  <div class="section-header__line"></div>
+</div>
+
+{% for page in term.pages %}
+  {{ macros::post_card(page=page) }}
+{% endfor %}
+
+{% endblock %}

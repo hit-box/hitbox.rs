@@ -1,0 +1,30 @@
+base_url = "https://blog.hitbox.rs"
+title = "Hitbox Blog"
+description = "Articles, news and deep-dives from the Hitbox async caching framework for Rust"
+default_language = "en"
+compile_sass = true
+minify_html = true
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+build_search_index = false
+
+[markdown]
+smart_punctuation = true
+
+[markdown.highlighting]
+enabled = true
+theme = "vitesse-black"
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+[extra]
+author = "Hitbox Team"
+github_url = "https://github.com/hit-box/hitbox"
+docs_url = "https://docs.rs/hitbox"
+
+[[taxonomies]]
+name = "tags"
+feed = true

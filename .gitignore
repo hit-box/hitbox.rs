@@ -1,0 +1,6 @@
+# Zola build output
+blog/public/
+
+# Synced shared assets (copied at build time)
+blog/sass/shared/
+blog/static/fonts/

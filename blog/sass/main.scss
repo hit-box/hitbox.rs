@@ -1,0 +1,13 @@
+// =============================================================================
+// Hitbox Blog — Main stylesheet
+// =============================================================================
+
+// Shared design tokens (copied from shared/ at build time)
+@import "shared/variables";
+@import "shared/fonts";
+@import "shared/base";
+
+// Blog-specific styles
+@import "layout";
+@import "components";
+@import "syntax";

@@ -1,0 +1,329 @@
+// =============================================================================
+// Blog components — Cards, tags, hero, pagination
+// =============================================================================
+
+// ── Hero section ────────────────────────────────────────────────────────────
+
+.hero {
+  padding: $space-16 0 $space-12;
+  text-align: left;
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: 700;
+    margin-bottom: $space-4;
+    color: $color-text;
+
+    @media (max-width: $bp-sm) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__prompt {
+    color: $color-accent;
+  }
+
+  &__cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background-color: $color-accent;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: $space-1;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: $color-text-muted;
+    max-width: 560px;
+    line-height: $line-height-base;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+// ── Section header ──────────────────────────────────────────────────────────
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: 400;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background-color: $color-border;
+  }
+}
+
+// ── Post card ───────────────────────────────────────────────────────────────
+
+.post-card {
+  display: block;
+  padding: $space-6;
+  margin-bottom: $space-4;
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  transition: border-color $transition-base, box-shadow $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $color-accent-dim;
+    box-shadow: 0 0 20px $color-accent-glow;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    margin-bottom: $space-3;
+    font-size: $font-size-xs;
+    color: $color-text-dim;
+  }
+
+  &__date {
+    color: $color-text-muted;
+  }
+
+  &__reading-time {
+    color: $color-text-dim;
+
+    &::before {
+      content: "~";
+      margin-right: $space-1;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: $space-2;
+    line-height: $line-height-tight;
+  }
+
+  &__summary {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    line-height: $line-height-base;
+  }
+
+  &__tags {
+    display: flex;
+    gap: $space-2;
+    margin-top: $space-3;
+  }
+}
+
+// ── Tags ────────────────────────────────────────────────────────────────────
+
+.tag {
+  display: inline-block;
+  padding: $space-1 $space-2;
+  font-size: $font-size-xs;
+  color: $color-accent-dim;
+  border: 1px solid $color-border;
+  background-color: transparent;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent-dim;
+    color: $color-accent;
+  }
+}
+
+// ── Article (single post) ───────────────────────────────────────────────────
+
+.article {
+  &__header {
+    margin-bottom: $space-8;
+    padding-bottom: $space-6;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    margin-bottom: $space-4;
+
+    @media (max-width: $bp-sm) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-4;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+
+  &__date {
+    color: $color-text-muted;
+  }
+
+  &__tags {
+    display: flex;
+    gap: $space-2;
+  }
+
+  &__body {
+    h2 {
+      margin-top: $space-12;
+      margin-bottom: $space-4;
+      padding-bottom: $space-2;
+      border-bottom: 1px solid $color-border;
+    }
+
+    h3 {
+      margin-top: $space-8;
+      margin-bottom: $space-3;
+    }
+
+    p {
+      margin-bottom: $space-4;
+    }
+
+    ul, ol {
+      margin-bottom: $space-4;
+      padding-left: $space-6;
+
+      li {
+        margin-bottom: $space-2;
+      }
+    }
+
+    blockquote {
+      margin: $space-6 0;
+      padding: $space-4 $space-6;
+      border-left: 3px solid $color-accent;
+      background-color: $color-surface;
+      color: $color-text-muted;
+      font-style: italic;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: $color-border;
+      margin: $space-8 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: $space-4;
+      font-size: $font-size-sm;
+
+      th, td {
+        padding: $space-2 $space-3;
+        border: 1px solid $color-border;
+        text-align: left;
+      }
+
+      th {
+        background-color: $color-surface;
+        font-weight: 700;
+      }
+
+      tr:nth-child(even) {
+        background-color: $color-surface;
+      }
+    }
+
+    img {
+      margin: $space-6 0;
+      border: 1px solid $color-border;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $space-12;
+    padding-top: $space-6;
+    border-top: 1px solid $color-border;
+    font-size: $font-size-sm;
+
+    a {
+      color: $color-text-muted;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+
+    &-prev::before {
+      content: "\2190\00a0";
+    }
+
+    &-next::after {
+      content: "\00a0\2192";
+    }
+  }
+}
+
+// ── Back link ───────────────────────────────────────────────────────────────
+
+.back-link {
+  display: inline-block;
+  margin-bottom: $space-6;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+
+  &::before {
+    content: "\2190\00a0";
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// ── Pagination ──────────────────────────────────────────────────────────────
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $space-8;
+  padding-top: $space-6;
+  border-top: 1px solid $color-border;
+  font-size: $font-size-sm;
+
+  a {
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__prev::before {
+    content: "\2190\00a0";
+  }
+
+  &__next::after {
+    content: "\00a0\2192";
+  }
+
+  &__info {
+    color: $color-text-dim;
+    font-size: $font-size-xs;
+  }
+}

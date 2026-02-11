@@ -1,0 +1,43 @@
+{% macro post_card(page) %}
+<a href="{{ page.permalink }}" class="post-card">
+  <div class="post-card__meta">
+    <time class="post-card__date" datetime="{{ page.date }}">
+      {{ page.date | date(format="%Y-%m-%d") }}
+    </time>
+    {% if page.reading_time %}
+    <span class="post-card__reading-time">{{ page.reading_time }} min read</span>
+    {% endif %}
+  </div>
+  <h3 class="post-card__title">{{ page.title }}</h3>
+  {% if page.description %}
+  <p class="post-card__summary">{{ page.description }}</p>
+  {% endif %}
+  {% if page.taxonomies.tags %}
+  <div class="post-card__tags">
+    {% for tag in page.taxonomies.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</a>
+{% endmacro %}
+
+{% macro pagination_nav(paginator) %}
+{% if paginator.previous or paginator.next %}
+<nav class="pagination">
+  <div>
+    {% if paginator.previous %}
+    <a href="{{ paginator.previous }}" class="pagination__prev">newer</a>
+    {% endif %}
+  </div>
+  <span class="pagination__info">
+    {{ paginator.current_index }} / {{ paginator.number_pagers }}
+  </span>
+  <div>
+    {% if paginator.next %}
+    <a href="{{ paginator.next }}" class="pagination__next">older</a>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}
+{% endmacro %}

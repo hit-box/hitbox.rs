@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:url" content="{% block og_url %}{{ config.base_url }}{% endblock %}">
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml') }}">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+</head>
+<body>
+  <div class="site">
+    <header class="site-nav">
+      <nav class="site-nav__inner">
+        <a href="{{ config.base_url }}" class="site-logo">
+          <span class="protocol">hitbox://</span><span class="domain">blog</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="{{ config.base_url }}/blog/" class="{% block nav_blog %}{% endblock %}">Blog</a></li>
+          <li><a href="{{ config.extra.github_url }}" rel="noopener">GitHub</a></li>
+          <li><a href="{{ config.extra.docs_url }}" rel="noopener">Docs</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="site-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <pre class="site-footer__ascii" aria-hidden="true">&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;  cache hit &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9617;&#9617; 89%   &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</pre>
+        <ul class="site-footer__links">
+          <li><a href="{{ config.extra.github_url }}">GitHub</a></li>
+          <li><a href="{{ config.extra.docs_url }}">Docs</a></li>
+          <li><a href="https://crates.io/crates/hitbox">Crates.io</a></li>
+          <li><a href="{{ get_url(path='atom.xml') }}">RSS</a></li>
+        </ul>
+        <p class="site-footer__copyright">&copy; {{ now() | date(format="%Y") }} Hitbox Project</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

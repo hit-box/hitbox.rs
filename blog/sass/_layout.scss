@@ -1,0 +1,131 @@
+// =============================================================================
+// Blog layout — Page structure, nav, footer
+// =============================================================================
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-content {
+  flex: 1;
+  width: 100%;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: $space-8 $space-6;
+
+  @media (min-width: $bp-md) {
+    padding: $space-12 $space-6;
+  }
+}
+
+// ── Navigation ──────────────────────────────────────────────────────────────
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  padding: 0 $space-6;
+  background-color: rgba($color-bg, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    width: 100%;
+    max-width: $content-width-lg;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.site-logo {
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $color-text;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+
+  .protocol {
+    color: $color-text-muted;
+    font-weight: 400;
+  }
+
+  .domain {
+    color: $color-accent;
+  }
+
+  &:hover {
+    color: $color-text;
+
+    .domain {
+      text-shadow: 0 0 8px $color-accent-glow;
+    }
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: $space-6;
+  list-style: none;
+
+  a {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+
+    &:hover,
+    &.active {
+      color: $color-accent;
+    }
+  }
+}
+
+// ── Footer ──────────────────────────────────────────────────────────────────
+
+.site-footer {
+  border-top: 1px solid $color-border;
+  padding: $space-8 $space-6;
+  text-align: center;
+
+  &__inner {
+    max-width: $content-width-lg;
+    margin: 0 auto;
+  }
+
+  &__ascii {
+    font-size: $font-size-xs;
+    color: $color-text-dim;
+    margin-bottom: $space-4;
+    line-height: 1.2;
+    white-space: pre;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    gap: $space-6;
+    list-style: none;
+    margin-bottom: $space-4;
+
+    a {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: $font-size-xs;
+    color: $color-text-dim;
+  }
+}
