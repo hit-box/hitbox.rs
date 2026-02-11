@@ -1,0 +1,5 @@
+name = "hitbox-blog"
+compatibility_date = "2026-02-11"
+
+[assets]
+directory = "./blog/public"
