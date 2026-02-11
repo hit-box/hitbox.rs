@@ -4,13 +4,15 @@ SHARED_SCSS  = shared/scss
 SHARED_FONTS = shared/fonts
 BLOG_DIR     = blog
 ZOLA_VERSION ?= 0.19.2
+ZOLA_LOCAL   = $(CURDIR)/.bin/zola
 
-# Download Zola if not found in PATH
+# Download Zola into .bin/ if not found in PATH, then add to PATH
 ensure-zola:
 	@which zola > /dev/null 2>&1 || { \
+		mkdir -p .bin; \
 		echo "Downloading Zola $(ZOLA_VERSION)..."; \
-		curl -sL "https://github.com/getzola/zola/releases/download/v$(ZOLA_VERSION)/zola-v$(ZOLA_VERSION)-x86_64-unknown-linux-gnu.tar.gz" | tar xz -C /usr/local/bin; \
-		echo "Zola $(ZOLA_VERSION) installed"; \
+		curl -sL "https://github.com/getzola/zola/releases/download/v$(ZOLA_VERSION)/zola-v$(ZOLA_VERSION)-x86_64-unknown-linux-gnu.tar.gz" | tar xz -C .bin; \
+		echo "Zola $(ZOLA_VERSION) installed to .bin/"; \
 	}
 
 # Copy shared design tokens into blog project before build
@@ -23,11 +25,11 @@ blog-sync:
 
 # Development server with live reload
 blog-dev: blog-sync
-	cd $(BLOG_DIR) && zola serve
+	cd $(BLOG_DIR) && PATH="$(CURDIR)/.bin:$$PATH" zola serve
 
 # Production build
 blog-build: ensure-zola blog-sync
-	cd $(BLOG_DIR) && zola build
+	cd $(BLOG_DIR) && PATH="$(CURDIR)/.bin:$$PATH" zola build
 
 # Remove synced shared assets from sub-projects
 clean:

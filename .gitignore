@@ -1,3 +1,6 @@
+# Downloaded tools
+.bin/
+
 # Zola build output
 blog/public/
 
