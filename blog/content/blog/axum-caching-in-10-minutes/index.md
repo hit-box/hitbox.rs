@@ -5,6 +5,10 @@ description = "A step-by-step guide to adding transparent HTTP response caching 
 
 [taxonomies]
 tags = ["tutorial", "axum", "caching"]
+
+[extra]
+og_image = "og/axum-caching-in-10-minutes.png"
+og_highlight = "Axum"
 +++
 
 Your Axum API hits the database on every request. The same query, the same result,
@@ -17,7 +21,7 @@ that sits between the client and your service.
 ## The API
 
 {% note() %}
-Full source code is in the [examples directory](https://github.com/hit-box/hitbox/tree/master/examples).
+Full source code is in the [examples repository](https://github.com/hit-box/examples/tree/main/axum-caching-in-10-minutes).
 {% end %}
 
 We're building a product catalog API. Two endpoints:
@@ -351,9 +355,9 @@ Header extractors support regex value extraction and transform chains — extrac
 you need, hash what's sensitive.
 {% end %}
 
-Your API has authenticated endpoints. Users send `Authorization` headers with their
-credentials. You want each user to get their own cache — but you don't want raw
-tokens sitting in your cache keys.
+Your API uses API keys or Basic Auth — credentials that don't expire. Users send
+an `Authorization` header with every request. You want each user to get their own
+cache — but you don't want raw credentials sitting in your cache keys.
 
 ### Simple: full header value
 
@@ -487,7 +491,7 @@ Clients that don't send the header get fast cached responses.
 
 The complete product catalog API with all the caching patterns from this article is
 available as a runnable example:
-[`examples/axum-products.rs`](https://github.com/hit-box/hitbox/tree/master/examples/examples/axum-products.rs).
+[`axum-caching-in-10-minutes`](https://github.com/hit-box/examples/tree/main/axum-caching-in-10-minutes).
 
 ## What's next
 
@@ -512,5 +516,5 @@ Hitbox can do more:
   result. Built in, no configuration needed.
 
 Check the [documentation](https://docs.rs/hitbox) and the
-[examples directory](https://github.com/hit-box/hitbox/tree/master/examples) for the
+[examples repository](https://github.com/hit-box/examples) for the
 full feature set.

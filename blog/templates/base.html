@@ -12,6 +12,7 @@
   <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   <meta property="og:url" content="{% block og_url %}{{ config.base_url }}{% endblock %}">
+  {% block og_image %}<meta property="og:image" content="{{ get_url(path='og/default.png') }}">{% endblock %}
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="{{ get_url(path='images/favicon.ico') }}">

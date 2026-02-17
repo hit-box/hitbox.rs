@@ -1,4 +1,4 @@
-.PHONY: blog-sync blog-dev blog-build clean ensure-zola
+.PHONY: blog-sync blog-dev blog-build clean ensure-zola og-images
 
 SHARED_SCSS   = shared/scss
 SHARED_FONTS  = shared/fonts
@@ -35,6 +35,32 @@ blog-dev: ensure-zola blog-sync
 # Production build
 blog-build: ensure-zola blog-sync
 	cd $(BLOG_DIR) && $(ZOLA_LOCAL) build
+
+# Generate OG images from Zola-rendered HTML (requires chromium)
+# Auto-discovers articles with og_image in frontmatter, creates ephemeral
+# mirror pages in content/og/, builds, screenshots, then cleans up.
+og-images: ensure-zola blog-sync
+	@mkdir -p $(BLOG_DIR)/content/og
+	@printf '+++\nrender = false\nsort_by = "none"\ngenerate_feeds = false\n+++\n' \
+		> $(BLOG_DIR)/content/og/_index.md
+	@for d in $(BLOG_DIR)/content/blog/*/; do \
+		if grep -q 'og_image' "$$d/index.md" 2>/dev/null; then \
+			slug=$$(basename "$$d"); \
+			printf '+++\ntitle = "OG"\ntemplate = "og-image.html"\n\n[extra]\nsource = "blog/%s/index.md"\n+++\n' \
+				"$$slug" > $(BLOG_DIR)/content/og/$$slug.md; \
+		fi; \
+	done
+	cd $(BLOG_DIR) && $(ZOLA_LOCAL) build
+	@mkdir -p $(BLOG_DIR)/static/og
+	@for f in $(BLOG_DIR)/public/og/*/index.html; do \
+		name=$$(basename $$(dirname "$$f")); \
+		echo "Generating OG image: $$name.png"; \
+		chromium --headless --disable-gpu \
+			--screenshot=$(BLOG_DIR)/static/og/$$name.png \
+			--window-size=1200,630 --hide-scrollbars "$$f" 2>/dev/null; \
+	done
+	@rm -rf $(BLOG_DIR)/content/og
+	@echo "OG images generated → $(BLOG_DIR)/static/og/"
 
 # Remove synced shared assets from sub-projects
 clean:

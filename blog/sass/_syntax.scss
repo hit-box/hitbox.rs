@@ -8,6 +8,7 @@ pre {
   background-color: $color-surface;
   border: 1px solid $color-border;
   overflow-x: auto;
+  min-width: 0;
   font-size: $font-size-sm;
   line-height: 1.6;
 
@@ -25,4 +26,5 @@ code:not(pre code) {
   border: 1px solid $color-border;
   font-size: 0.85em;
   color: $color-accent;
+  overflow-wrap: break-word;
 }

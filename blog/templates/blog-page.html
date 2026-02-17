@@ -6,6 +6,7 @@
 {% block og_description %}{{ page.description | default(value=config.description) }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ page.permalink }}{% endblock %}
+{% block og_image %}{% if page.extra.og_image %}<meta property="og:image" content="{{ get_url(path=page.extra.og_image) }}">{% endif %}{% endblock %}
 
 {% block content %}
 
