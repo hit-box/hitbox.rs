@@ -57,6 +57,7 @@
 
   @media (max-width: $bp-md) {
     display: flex;
+    gap: $space-4;
   }
 }
 
@@ -129,6 +130,11 @@
     margin-bottom: $space-4;
     line-height: 1.2;
     white-space: pre;
+    overflow-x: auto;
+
+    @media (max-width: $bp-sm) {
+      font-size: 0.6rem;
+    }
   }
 
   &__links {
