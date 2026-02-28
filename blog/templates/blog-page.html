@@ -18,7 +18,7 @@
   <div class="article__meta">
     <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
     {% if page.reading_time %}
-    <span>~{{ page.reading_time }} min read</span>
+    <span>~{{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
     {% endif %}
   </div>
 
