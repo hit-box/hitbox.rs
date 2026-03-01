@@ -14,7 +14,7 @@
     <div class="featured-post__meta">
       <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
       {% if page.reading_time %}
-      <span>~{{ page.reading_time }} min read</span>
+      <span>~{{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
       {% endif %}
     </div>
     <h2 class="featured-post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
@@ -65,7 +65,7 @@
     <div class="featured-post__meta">
       <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
       {% if page.reading_time %}
-      <span>~{{ page.reading_time }} min read</span>
+      <span>~{{ page.extra.reading_time | default(value=page.reading_time) }} min read</span>
       {% endif %}
     </div>
     <h2 class="featured-post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
