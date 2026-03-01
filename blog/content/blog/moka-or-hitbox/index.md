@@ -16,7 +16,7 @@ reading_time = 2
 **tl;dr:** Both. Moka is a storage backend. Hitbox is an orchestrator. They solve different problems.
 {% end %}
 
-Rust has a lot of caching crates: Moka, redis-rs, Memcache, `lru_cache`, `cached`, and others. They can be roughly split into two groups — storage engines (databases, data structures) and crates that add higher-level functionality, like `http-cache-tower` with HTTP semantics. This article focuses on the first group.
+Rust has a lot of caching crates: Moka, redis-rs, Memcache, lru_cache, cached, and others. They can be roughly split into two groups — storage engines (databases, data structures) and crates that add higher-level functionality, like http-cache-tower with HTTP semantics. This article focuses on the first group.
 
 ## The Cache Storage Trap
 
@@ -59,7 +59,7 @@ Under high traffic, this approach runs into several known problems.
 
 **Distributed state.** With multiple server instances, each running its own Moka cache, hit rates drop because instances don't share state. Adding Redis solves sharing but removes fast local reads. Using both as L1 (Moka) and L2 (Redis Cluster) preserves local speed but requires refilling logic, write ordering, and consistency code between layers.
 
-On top of this, a production caching system typically also requires metrics, configurable serialization formats, compression, and the ability to swap backends without modifying application code.
+On top of this, a production caching system typically also requires metrics, a serialization format and compression, and the ability to add new backends.
 
 **So, one day, it becomes its own Hitbox.**
 
