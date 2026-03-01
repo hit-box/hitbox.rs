@@ -1,18 +1,49 @@
 # Hitbox
 
-> Async caching framework for Rust
+> Highly customizable async caching framework for Rust designed for high-performance applications.
 
-Hitbox is an open-source cache orchestrator for Rust. It works with storage backends (Moka, Redis, FeOxDB) and provides transparent caching for HTTP services via Tower middleware and for functions via a `#[cached]` macro.
+Hitbox is an open-source cache orchestrator for Rust. Protocol-agnostic async core with first-class HTTP support. Pluggable backends from in-memory to distributed. Built on Tower, works with any tokio-based service.
+
+Hitbox supports two caching approaches: middleware (a Tower layer wraps handlers transparently) and function memoization (`#[cached]` macro on async functions). Both keep caching logic out of business code.
 
 ## Key features
 
-- Tower middleware for Axum/Actix — cache HTTP responses without changing handlers
-- Pluggable backends — Moka (in-memory), Redis, FeOxDB, or custom via `Backend` trait
-- L1/L2 composition — layer backends (e.g. Moka in front of Redis)
-- Dogpile prevention — one request refreshes, others subscribe
-- Stale-while-revalidate — serve stale data while refreshing in background
-- Predicates — control what gets cached (by status code, headers, body)
-- Extractors — build cache keys from query params, path segments, headers
+- Tower middleware for Axum and any tower-based framework
+- Client-side caching for Hyper and Reqwest
+- Function memoization with `#[cached]` macro and derive-based key extraction
+- Pluggable backends — Moka (in-memory), Redis (distributed), FeOxDB (embedded persistent)
+- Composable backends — L1/L2/L3 tiers with configurable read, write, and refill policies
+- Dogpile prevention — configurable concurrency limit per key with broadcast
+- Stale-while-revalidate — serve stale data while refreshing in background (OffloadRevalidate)
+- Predicates — control what gets cached by method, path, headers, query, body, status code, JQ expressions
+- Extractors — build cache keys from method, path segments, query params, headers, body (regex, JQ, hash)
+- Serialization — Bincode, Rkyv (zero-copy), RON, JSON
+- Compression — zstd, gzip
+- Observability — cache hit/miss/stale counters, latency histograms, backend I/O, offload task metrics
+- YAML configuration — define caching setup in config files, change rules at runtime
+
+## Performance
+
+- 172x throughput improvement with 50ms simulated backend (970 → 167,270 req/s)
+- ~20µs overhead on cache miss, ~10-12µs on cache hit
+- Moka read: ~2µs (5KB), Redis read: ~160µs (5KB)
+
+## Project structure
+
+| Crate | Role |
+|-------|------|
+| `hitbox` | Main crate: policy configuration, stale cache, feature flags |
+| `hitbox-core` | Core traits (Predicate, Extractor) for protocol-agnostic caching |
+| `hitbox-backend` | Backend trait and utilities |
+| `hitbox-fn` | Function memoization with `#[cached]` macro |
+| `hitbox-derive` | Derive macros (KeyExtract, CacheableResponse, CacheableRequest) |
+| `hitbox-http` | HTTP predicates and extractors |
+| `hitbox-tower` | Tower middleware (Cache layer) |
+| `hitbox-configuration` | YAML/file-based configuration |
+| `hitbox-moka` | Moka in-memory backend |
+| `hitbox-redis` | Redis distributed backend |
+| `hitbox-feoxdb` | FeOxDB embedded persistent backend |
+| `hitbox-reqwest` | Reqwest client-side caching via reqwest-middleware |
 
 ## Links
 
