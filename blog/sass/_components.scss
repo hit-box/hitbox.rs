@@ -2,6 +2,60 @@
 // Blog components — Featured posts, post grid, tags, article
 // =============================================================================
 
+// ── Error page (404) ──────────────────────────────────────────────────────
+
+.error-page {
+  grid-column: 5 / -1;
+  padding: $space-16 0;
+
+  @media (max-width: $bp-md) {
+    grid-column: 1 / -1;
+  }
+
+  &__code {
+    font-size: 6rem;
+    font-weight: 600;
+    color: $color-text-dim;
+    line-height: 1;
+    margin-bottom: $space-4;
+  }
+
+  &__message {
+    font-size: $font-size-lg;
+    color: $color-text;
+    margin-bottom: $space-6;
+  }
+
+  &__suggestion {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-4;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+}
+
+// ── Visually hidden (accessible to screen readers) ────────────────────────
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 // ── Intro / description ────────────────────────────────────────────────────
 
 .intro {
@@ -198,9 +252,11 @@
   &__title {
     font-size: $font-size-sm;
     font-weight: 400;
+    line-height: $line-height-base;
     color: $color-text-muted;
     letter-spacing: 0.05em;
     white-space: nowrap;
+    margin: 0;
   }
 
   &__line {

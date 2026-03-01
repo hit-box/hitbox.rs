@@ -1,0 +1,81 @@
+# Hitbox
+
+> Async caching framework for Rust
+
+Hitbox is an open-source cache orchestrator for Rust. It separates caching logic from business logic, providing transparent caching for HTTP services (via Tower middleware) and for individual functions (via a `#[cached]` macro). It works with pluggable storage backends and handles coordination concerns like dogpile prevention, stale-while-revalidate, and multi-tier cache composition.
+
+## Architecture
+
+Hitbox is modular — pick only the crates you need:
+
+| Crate | Role |
+|-------|------|
+| `hitbox` | Core: config, policies, predicate traits |
+| `hitbox-tower` | `Cache` layer for Tower/Axum |
+| `hitbox-http` | HTTP-aware predicates and extractors |
+| `hitbox-moka` | In-memory backend (Moka — lock-free, sub-microsecond) |
+| `hitbox-redis` | Redis backend for distributed caching |
+
+## Key concepts
+
+### Backends
+Storage engines that implement the `Backend` trait. Hitbox ships with Moka (in-memory) and Redis backends. Backends can be composed into L1/L2 hierarchies — for example, local Moka in front of remote Redis.
+
+### Predicates
+Rules that decide whether a request or response is cacheable. Two kinds:
+- **Request predicates** — evaluated before checking cache ("should we even look?")
+- **Response predicates** — evaluated after handler runs ("should we store this?")
+
+Predicates compose with `.and()`, `.or()`, and `.not()`.
+
+### Extractors
+Define which parts of the request form the cache key. Without an extractor, all requests to the same path share one cache entry. Extractors can pull from:
+- Query parameters (`.query("page")`)
+- Path segments (`.path("/products/{id}")`)
+- Headers (`.header("authorization")`) with optional transforms (hash, lowercase, regex extraction)
+
+### Policies
+Control TTL, stale-while-revalidate windows, and concurrency:
+- `ttl` — time before entry expires
+- `stale` — window after TTL where stale data is served while refreshing in background
+- Dogpile prevention — built-in, one request refreshes while others subscribe to broadcast
+
+## Links
+
+- Blog: https://blog.hitbox.rs
+- GitHub: https://github.com/hit-box/hitbox
+- Docs: https://docs.rs/hitbox
+- Crates.io: https://crates.io/crates/hitbox
+- Examples: https://github.com/hit-box/examples
+
+---
+
+## Blog articles
+
+### Add Response Caching to Axum in 10 Minutes
+URL: https://blog.hitbox.rs/blog/axum-caching-in-10-minutes/
+Date: 2026-02-16
+Tags: tutorial, axum, caching
+
+A step-by-step guide to adding transparent HTTP response caching to an Axum application using Hitbox. Covers:
+- Setting up MokaBackend with a 60-second TTL
+- Adding a Cache Tower layer to routes
+- Response predicates to only cache 200 OK (avoiding cached errors)
+- Query parameter extractors for pagination-aware cache keys
+- Path extractors for per-resource caching
+- Header extractors with SHA256 hashing for auth-aware caching
+- Cache-Control: no-cache support for client-driven cache bypass
+- Full runnable example at https://github.com/hit-box/examples/tree/main/axum-caching-in-10-minutes
+
+### Should I Use Moka or Hitbox?
+URL: https://blog.hitbox.rs/blog/moka-or-hitbox/
+Date: 2026-02-28
+Tags: moka, caching
+
+Overview of the Rust caching ecosystem. Explains the difference between cache storage engines (Moka, Redis, lru_cache) and cache orchestrators (Hitbox). Covers:
+- The "cache storage trap" — manual cache-aside pattern with boilerplate in every handler
+- Dogpile effect under high traffic and solutions (locking, semaphore, broadcast)
+- Stale-while-revalidate with split TTL phases
+- L1/L2 distributed caching (Moka + Redis)
+- How Hitbox provides all of these as built-in, configurable features
+- Conclusion: Moka and Hitbox solve different problems and work together
