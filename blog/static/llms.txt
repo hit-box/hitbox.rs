@@ -1,0 +1,28 @@
+# Hitbox
+
+> Async caching framework for Rust
+
+Hitbox is an open-source cache orchestrator for Rust. It works with storage backends (Moka, Redis, FeOxDB) and provides transparent caching for HTTP services via Tower middleware and for functions via a `#[cached]` macro.
+
+## Key features
+
+- Tower middleware for Axum/Actix — cache HTTP responses without changing handlers
+- Pluggable backends — Moka (in-memory), Redis, FeOxDB, or custom via `Backend` trait
+- L1/L2 composition — layer backends (e.g. Moka in front of Redis)
+- Dogpile prevention — one request refreshes, others subscribe
+- Stale-while-revalidate — serve stale data while refreshing in background
+- Predicates — control what gets cached (by status code, headers, body)
+- Extractors — build cache keys from query params, path segments, headers
+
+## Links
+
+- Blog: https://blog.hitbox.rs
+- GitHub: https://github.com/hit-box/hitbox
+- Docs: https://docs.rs/hitbox
+- Crates.io: https://crates.io/crates/hitbox
+- Examples: https://github.com/hit-box/examples
+
+## Blog articles
+
+- [Add Response Caching to Axum in 10 Minutes](https://blog.hitbox.rs/blog/axum-caching-in-10-minutes/): Step-by-step guide to adding transparent HTTP response caching to Axum using Hitbox.
+- [Should I Use Moka or Hitbox?](https://blog.hitbox.rs/blog/moka-or-hitbox/): Overview of the Rust caching ecosystem — what stores data, what coordinates it, and where Hitbox fits in.

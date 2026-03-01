@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — {{ config.title }}{% endblock %}
+{% block description %}The page you're looking for doesn't exist.{% endblock %}
+
+{% block content %}
+
+<div class="grid">
+  <div class="error-page">
+    <h1 class="error-page__code">404</h1>
+    <p class="error-page__message">This page doesn't exist.</p>
+    <p class="error-page__suggestion">Here's where you might want to go instead:</p>
+    <ul class="error-page__links">
+      <li><a href="{{ config.base_url }}">Blog</a> — articles about caching in Rust</li>
+      <li><a href="{{ config.extra.docs_url }}">Docs</a> — Hitbox API reference</li>
+      <li><a href="{{ config.extra.github_url }}">GitHub</a> — source code and examples</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
