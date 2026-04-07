@@ -12,18 +12,23 @@
   </div>
 
   {% if blog.pages %}
-    {# Featured posts — first 2, large 2-column layout #}
-    {% for page in blog.pages | slice(end=2) %}
-      {{ macros::featured_post(page=page) }}
-    {% endfor %}
+    {% if blog.pages | length > 4 %}
+      {# Featured posts — first 2, large 2-column layout #}
+      {% for page in blog.pages | slice(end=2) %}
+        {{ macros::featured_post(page=page) }}
+      {% endfor %}
 
-    {# Post grid — remaining posts, 3-column small cards #}
-    {% if blog.pages | length > 2 %}
+      {# Post grid — remaining posts, 3-column small cards #}
       <div class="post-grid">
         {% for page in blog.pages | slice(start=2) %}
           {{ macros::grid_card(page=page) }}
         {% endfor %}
       </div>
+    {% else %}
+      {# 4 or fewer posts — all displayed as large featured posts #}
+      {% for page in blog.pages %}
+        {{ macros::featured_post(page=page) }}
+      {% endfor %}
     {% endif %}
   {% endif %}
 </div>
